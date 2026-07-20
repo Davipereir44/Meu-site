@@ -1,53 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<title>Para Minha Neguinha ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Letícia ❤️</title>
+
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#ffe6f0;
-text-align:center;
-padding:40px;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-.caixa{
-background:white;
-padding:25px;
-border-radius:20px;
+
+body{
+font-family:Arial, sans-serif;
+background:linear-gradient(180deg,#001f4d,#003b8f,#0066ff);
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:1.2rem;
 max-width:700px;
+}
+
+section{
+padding:80px 20px;
+max-width:900px;
 margin:auto;
 }
-h1{color:#ff4d88;}
+
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+margin-bottom:30px;
+}
+
+h2{
+margin-bottom:20px;
+color:#8ec5ff;
+}
+
+#contador{
+font-size:2rem;
+font-weight:bold;
+margin-top:20px;
+}
+
+.coracao{
+position:fixed;
+top:-10px;
+color:white;
+animation:cair linear forwards;
+pointer-events:none;
+}
+
+@keyframes cair{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+.botao{
+display:inline-block;
+padding:15px 25px;
+background:white;
+color:#003b8f;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+margin-top:20px;
+}
 </style>
 </head>
+
 <body>
 
-<div class="caixa">
-<h1>Para Minha Neguinha Cacheada ❤️</h1>
+<div class="hero">
+<h1>Para Letícia (Negaa) 💙</h1>
 
 <p>
-Fiz este site para mostrar um pouco do que sinto por você.
+Mesmo sem fotos juntos, existem memórias que cabem muito mais no coração do que em qualquer câmera.
 </p>
 
+<div id="contador"></div>
+
+<a class="botao" href="#carta">
+Ler Minha Carta 💌
+</a>
+</div>
+
+<section>
+
+<div class="card">
 <h2>Por que me apaixonei por você?</h2>
 
 <p>
-Porque seu jeito é único, seu sorriso ilumina meus dias
-e cada conversa com você se torna uma lembrança especial.
+Eu me apaixonei pelo seu jeito.
+Pelas conversas que nunca pareciam ter fim.
+Pela forma que você consegue deixar meus dias melhores.
+Pela sua personalidade, pelo seu sorriso e pela pessoa incrível que você é.
 </p>
+</div>
 
-<h2>O que eu amo em você</h2>
+<div class="card">
+<h2>Coisas que me lembram você ✨</h2>
 
 <p>
-✨ Seu cabelo cacheado<br>
-✨ Seu sorriso<br>
-✨ Seu carinho<br>
-✨ Seu jeito de ser<br>
-✨ Sua companhia
+💙 Cor azul<br>
+🍕 Pizza<br>
+🎵 Henrique & Juliano<br>
+🧚 Tinker Bell<br>
+🐰 Looney Tunes<br>
+🌹 Seu cabelo cacheado
 </p>
-
-<p><b>Você é muito especial para mim ❤️</b></p>
-
 </div>
+
+<div class="card" id="carta">
+<h2>Uma carta para você 💌</h2>
+
+<p>
+Negaa,
+
+Desde 2022 você se tornou uma das pessoas mais especiais da minha vida.
+
+Talvez a gente não tenha fotos juntos para encher um álbum, mas tenho lembranças suficientes para encher meu coração.
+
+Você entrou na minha vida de um jeito único e deixou sua marca nela.
+
+Seu sorriso, seu jeito, suas qualidades e até os pequenos detalhes fazem você ser alguém impossível de esquecer.
+
+Se eu fiz esse site, foi para que você soubesse que existe alguém que olha para você com muito carinho, admiração e afeto.
+
+Obrigado por existir e por ser exatamente quem você é.
+
+Com carinho,
+💙
+</p>
+</div>
+
+<div class="card">
+<h2>Nossa Música 🎵</h2>
+
+<p>
+Você pode adicionar aqui o link da música que lembra vocês.
+</p>
+</div>
+
+</section>
+
+<script>
+const inicio = new Date("2022-07-01");
+
+function atualizarContador(){
+const hoje = new Date();
+
+const diferenca = hoje - inicio;
+
+const dias = Math.floor(diferenca / (1000*60*60*24));
+
+document.getElementById("contador").innerHTML =
+"💙 Você está nos meus pensamentos há " + dias + " dias";
+}
+
+atualizarContador();
+
+function criarCoracao(){
+const coracao = document.createElement("div");
+
+coracao.innerHTML = "💙";
+
+coracao.classList.add("coracao");
+
+coracao.style.left = Math.random()*100+"vw";
+
+coracao.style.fontSize =
+(Math.random()*20+15)+"px";
+
+coracao.style.animationDuration =
+(Math.random()*5+4)+"s";
+
+document.body.appendChild(coracao);
+
+setTimeout(()=>{
+coracao.remove();
+},9000);
+}
+
+setInterval(criarCoracao,300);
+</script>
 
 </body>
 </html>
